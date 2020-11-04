@@ -221,22 +221,31 @@
         }
 
         .zack-img {
-            width: 80%;
-            height: 40%;
+            width: 85%;
+            height: 45%;
             position: absolute;
-            left: 10%;
-            top: 9%;
+            left: 8%;
+            top: 13%;
+        }
+
+        .zack-title {
+            width: 70%;
+            height: 20%;
+            position: absolute;
+            left: 12%;
+            top: 74%;
+            color: #ffffff;
+            font-size: 20px;
         }
 
         .zack-text {
             width: 70%;
             height: 20%;
             position: absolute;
-            left: 15%;
-            top: 63%;
+            left: 12%;
+            top: 87%;
             color: #ffffff;
             font-size: 20px;
-
         }
 
         .zack-link {
@@ -281,8 +290,9 @@
                 <div id="forward">
                     <img class="zack-img"></img>
                     <div id="forward-bg"></div>
+                    <p class="zack-title"></p>
                     <p class="zack-text"></p>
-                    <a class="zack-link">貼文連結</a>
+                    <!-- <a class="zack-link">貼文連結</a> -->
                 </div>
                 <div id="behind"></div>
             </div>
@@ -290,14 +300,19 @@
         </div>
     </div>
 
-    <script src="./js/jquery-3.5.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="//code.jquery.com/mobile/1.5.0-alpha.1/jquery.mobile-1.5.0-alpha.1.min.js"></script>
+    <!-- <script src="//code.jquery.com/mobile/1.5.0-alpha.1/jquery.mobile-1.5.0-alpha.1.min.js"></script> -->
 
     <script>
       let click = true
       let showFinish = false
+
+      // TODO 之後改讀 txt
+      var txt = '[{"title":"阿嬤古早味","img":"food-01.jpg","content":"羅永的摯愛，肯定的。"},{"title":"玲波重慶小麵","img":"food-02.jpg","content":"玲ㄇ ~~~~~~~~~~~"},{"title":"全球設計總監","img":"elvis.jpg","content":"當打出這張牌，無視所有選擇，總監等於一切。"}]'
+      var obj = JSON.parse(txt);
+
       $('#scroll-card').on('vmouseout',function(event){
         if (click == true) {
                 getZack()
@@ -333,6 +348,7 @@
             $('#turn-card').removeClass('turn')
             $('#turn-card').removeClass('zoom')
             $('#black').fadeTo(10, 1)
+            $('.zack-title').fadeTo(10, 0)
             $('.zack-text').fadeTo(10, 0)
             $('.zack-link').fadeTo(10, 0)
         }
@@ -349,6 +365,7 @@
                     $('#turn-card').addClass('zoom')
 
                     setTimeout(() => {
+                        $('.zack-title').fadeTo(500, 1)
                         $('.zack-text').fadeTo(500, 1)
                         $('.zack-link').fadeTo(500, 1)
                     }, 1500)
@@ -359,10 +376,13 @@
         const getZack = async () => {
             try {
                 let json = await axios.get('https://api.kento520.tw/zack/?rand')
+                var random = Math.floor(Math.random() * obj.length);
+                console.log(obj[random]);
 
-                $('.zack-img').attr('src', json.data.image)
-                $('.zack-text').text(json.data.description)
-                $('.zack-link').attr('href', json.data.link)
+                $('.zack-img').attr('src', './images/foods/' + obj[random].img);
+                $('.zack-title').text(obj[random].title);
+                $('.zack-text').text(obj[random].content)
+                //$('.zack-link').attr('href', json.data.link)
 
                 console.log(json.data);
             } catch (error) {
