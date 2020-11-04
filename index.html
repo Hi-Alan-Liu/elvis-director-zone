@@ -375,7 +375,6 @@
 
         const getZack = async () => {
             try {
-                let json = await axios.get('https://api.kento520.tw/zack/?rand')
                 var random = Math.floor(Math.random() * obj.length);
                 console.log(obj[random]);
 
@@ -383,8 +382,6 @@
                 $('.zack-title').text(obj[random].title);
                 $('.zack-text').text(obj[random].content)
                 //$('.zack-link').attr('href', json.data.link)
-
-                console.log(json.data);
             } catch (error) {
                 console.log(error.message);
             }
