@@ -306,39 +306,45 @@
     <script src="https://code.jquery.com/mobile/1.5.0-alpha.1/jquery.mobile-1.5.0-alpha.1.min.js"></script>
 
     <script>
-      let click = true
-      let showFinish = false
+        let click = true
+        let showFinish = false
 
-      // TODO 之後改讀 txt
-      var txt = '[{"title":"阿嬤古早味","img":"food-01.jpg","content":"羅永的摯愛，肯定的。"},{"title":"玲波重慶小麵","img":"food-02.jpg","content":"玲ㄇ ~~~~~~~~~~~"},{"title":"全球設計總監","img":"elvis.jpg","content":"當打出這張牌，無視所有選擇，總監等於一切。"}]'
-      var obj = JSON.parse(txt);
+        // TODO 之後改讀 txt
+        // var txt = '[{"title":"阿嬤古早味","img":"food-01.jpg","content":"羅永的摯愛，肯定的。"},{"title":"玲波重慶小麵","img":"food-02.jpg","content":"玲ㄇ ~~~~~~~~~~~"},{"title":"全球設計總監","img":"elvis.jpg","content":"當打出這張牌，無視所有選擇，總監等於一切。"}]'
+        // var obj = JSON.parse(txt);
+        var obj = null;
+        var url = "data.json";
+        $.getJSON(url, function(result){
+            obj = result.food;
+        });
 
-      $('#scroll-card').on('vmouseout',function(event){
+
+        $('#scroll-card').on('vmouseout',function(event){
         if (click == true) {
                 getZack()
                 second()
             }
 
             click = false
-      })
-      $('#scroll-card').draggable({ axis: "y",revert: "valid"});
-      $('#scroll-end').droppable({
-      drop: function( event, ui ) {
-          if (click == true) {
+        })
+        $('#scroll-card').draggable({ axis: "y",revert: "valid"});
+        $('#scroll-end').droppable({
+        drop: function( event, ui ) {
+            if (click == true) {
                 getZack()
                 second()
             }
 
             click = false
-      }
-      })
-
-      $('#second').click(()=>{
-        if(click == false){
-          first()
         }
-        click = true
-      })
+        })
+
+        $('#second').click(()=>{
+            if(click == false){
+            first()
+            }
+            click = true
+        })
 
         const first = () => {
             $('#scroll-card').removeClass('scroll')

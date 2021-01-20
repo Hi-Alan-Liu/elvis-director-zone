@@ -1,0 +1,39 @@
+{
+    "food": [
+        {
+            "title": "全球設計總監",
+            "img": "elvis.jpg",
+            "content": "當打出這張牌，無視所有選擇，總監等於一切。"
+        },
+        {
+            "title": "玲波重慶小麵",
+            "img": "food-02.jpg",
+            "content": "求勇者挑戰中辣以上。"
+        },
+        {
+            "title": "7-ELEVEN",
+            "img": "food-03.jpg",
+            "content": "微波食品就是讚，還能當奈米股東。"
+        },
+        {
+            "title": "米宝便當",
+            "img": "food-04.jpg",
+            "content": "擁有史上最柴、最薄的黃金排骨便當。"
+        },
+        {
+            "title": "極品豚骨拉麵",
+            "img": "food-05.jpg",
+            "content": "地獄拉麵麵條紅色辣到懷疑人生。OMG有夠好吃"
+        },
+        {
+            "title": "喬品賣炒飯",
+            "img": "food-06.jpg",
+            "content": "非常普通的炒飯。想不到優點"
+        },
+        {
+            "title": "滿味香排骨專賣店",
+            "img": "food-07.jpg",
+            "content": "出餐速度數一數二的快，雞腿還又大又香。"
+        }
+    ]
+}
