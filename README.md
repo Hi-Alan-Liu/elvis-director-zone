@@ -13,7 +13,7 @@ README
 ### 還在為吃飯選擇煩惱嗎？ 
 ### 立刻進入排除煩惱！
 
-[點擊進入](https://pa013971.github.io/elvis-director-zone/)
+[點擊進入](https://hi-alan-liu.github.io/elvis-director-zone/)
 
 ## 餐館清單
 
